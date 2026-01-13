@@ -4,11 +4,11 @@ This project is a mix of: python (3.11), raspberry pi 5, cloud (AWS and Mosquitt
 
 We did this project on a raspberry pi 5.
 
-Video explaining the project: **https://youtu.be/prIeIzTxbvk**. The slides in the video are included in this folder.
+**Video explaining the project: https://youtu.be/prIeIzTxbvk**. The slides in the video are included in this folder.
 
 I forgot to mention in the video that the raspberry pi 5 sends data to both mosquitto broker and AWS. When it sends data to AWS, AWS sends them to lambda. Then, Lambda saves the data in a DynamoDB database, performs logic (controls the LED), and publishes it .
 
-### Folders/file description: open each folder for more details and explanation
+### Folders/file description: open each folder for more details and explanation on how it works and how to run it properly.
 * train_tflite_model - shows how to collect raw data from IMU, save it, train a model with it, and convert it to a more lightweight version (tflite).
 * project - all the files needed to run the project (except for facial recog model due to being very large)
 * mpu9250.py - after installing imusensor package, replace author's mpu9250.py with the one in this repository
