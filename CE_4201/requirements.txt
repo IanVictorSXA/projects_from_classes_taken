@@ -1,0 +1,15 @@
+paho-mqtt
+smbus
+numpy
+imusensor
+pygame
+gTTS
+gpiozero
+tinydb
+opencv-python
+onnxruntime
+mediapipe
+ollama
+ai-edge-litert
+tensorflow
+keras-tuner
