@@ -8,7 +8,18 @@ We did this project on a raspberry pi 5. Scripts with no authors at the top were
 
 I forgot to mention in the video that the raspberry pi 5 sends data to both mosquitto broker and AWS. When it sends data to AWS, AWS sends them to lambda. Then, Lambda saves the data in a DynamoDB database, performs logic (controls the LED), and publishes it .
 
-
+### Clone the Repository
+```bash
+git clone https://github.com/IanVictorSXA/projects_from_classes_taken.git
+```
+Navigate to the repository directory:
+```bash
+cd projects_from_classes_taken/CE_4201
+```
+Install all python packages:
+```bash
+pip install -r requirements.txt
+```
 
 ### Folders/file description: open each folder for more details and explanation on how it works and how to run it properly.
 * train_tflite_model - shows how to collect raw data from IMU, save it, train a model with it, and convert it to a more lightweight version (tflite).
@@ -28,10 +39,10 @@ I forgot to mention in the video that the raspberry pi 5 sends data to both mosq
 Our project is to use a raspberry pi 5 to get raw data (in bits converted to decimal) from an IMU (electronic device which has a magnetometer, accelerometer, and gyroscope), use a lightweight neural network (a tflite model) to calculate the IMU's orientation accross all 3 dimensions (roll, pitch, yaw) and send it to cloud. The cloud will save result in a database, send it to a phone app and to another raspberry pi 5, and the cloud will control the LEDs representing each IMU. LED is on if IMU orientation is at least close to desired orientation, and off otherwise. 
 
 
-<img width="1200" height="675" alt="image" src="https://github.com/user-attachments/assets/b2efa6d5-250b-419e-8e91-8720dcd4b4de" />
+<img width="600" height="338" alt="image" src="https://github.com/user-attachments/assets/b2efa6d5-250b-419e-8e91-8720dcd4b4de" />
 
 
 Then we have a LLM installed in the raspberry pi. The llm is agentic. We can chat with it like any other LLM plus we can ask it to turn on/off an LED (different from the ones used by the cloud), and to play music that is installed locally. The LLM both replies in text and through speech using the google translate API. To have access to the LLM, the user's face should be added to database. A distance sensor will check if someone is nearby and, if so, it will turn on camera on slave raspberry pi for facial recognition.
 
-<img width="1200" height="675" alt="image" src="https://github.com/user-attachments/assets/18da472e-b52f-4ee7-8f76-111d97f5c4ed" />
+<img width="600" height="338" alt="image" src="https://github.com/user-attachments/assets/18da472e-b52f-4ee7-8f76-111d97f5c4ed" />
 
