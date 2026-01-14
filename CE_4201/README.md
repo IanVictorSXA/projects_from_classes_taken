@@ -2,7 +2,7 @@ Final project of the IoT lab. This is a team project. Members: Ian Victor Souza 
 
 This project is a mix of: python (3.11), raspberry pi 5, cloud (AWS and Mosquitto, using MQTT protocol), machine learning (tensorflow, liteRT, Ollama for LLMs and agentic AI), physical computing (IMU - MPU9250, ultrasonic sensor, picamera, speaker, and LEDs), MIT app inventor for mobile app development, little bit of Linux, teamwork, and tons of research.
 
-We did this project on a raspberry pi 5.
+We did this project on a raspberry pi 5. Scripts with no authors at the top were written by me (IanVictorSXA)
 
 Video explaining the project: **https://youtu.be/prIeIzTxbvk**. The slides in the video are included in this folder.
 
@@ -16,7 +16,7 @@ I forgot to mention in the video that the raspberry pi 5 sends data to both mosq
 **Project is split in 2 parts:**
 
 * Part 1 - collect data, perform inference with tflite model, and send data to MQTT broker and AWS IoT. Control LEDs. Visualize data on phone.
-* Part 2 - use ultrasonic sensor for checking for human presence, do facial recognition, control speaker, use LLM, and do agentic AI with LLM (to play music, control a different LED from part 1, and retrieve data from part one)
+* Part 2 - use ultrasonic sensor for checking for human presence, do facial recognition, control speaker, use LLM, and do agentic AI with LLM (to play music, control a different LED from part 1, and retrieve data from part one). `This part needs 2 raspberry pi 5s, but you can tweak the code to make it all work with a single one.`
 
 **Project description:**
 

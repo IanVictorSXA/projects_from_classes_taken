@@ -1,5 +1,7 @@
-# To test facial recognition
 # Author: Yongming Mai (MYM929)
+# This scripts waits for the command from Master device. It expects 2 types of message: "register" and "recogntion"
+# Register will make it add a new person to database
+# Recogntion will make it do the facial recognition
 
 import paho.mqtt.client as mqtt
 import ssl

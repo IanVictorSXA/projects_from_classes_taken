@@ -1,0 +1,14 @@
+This folder contains all the files I used to collect data, train neural networks, and convert it to tflite. The neural network is given 3 values (gyroscope, magnetometer, accelerometer) for each dimension, totalling 9 values. They are all given raw (bits converted in decimal). That is, they are given without converting them to actual measurements (e.g.: m/s^2) and without calibrating them. The neural network outputs 6 values (sine and cosine for each dimension of rotation: roll, pitch, yaw). It is not outputting the angles directly because sine and cosine preserves the angle's circular relation to other numbers. That is, 0 degrees is very close to 359.
+
+The model used in the project is included in the project folder. Keep in mind that the neural network used is a very simple one (5 layers, 287 neurons per layer). 
+
+Note that the use of this neural network is completely avoidable as we can do math to compute the orientation ourselves using the data from the IMU. The imusensor package can do all that for us. We used machine learning to do that math for us because it was one of the project's requirements (to use neural networks and liteRT) and out of curiosity about how good neural networks would be at learning the math just from noisy data samples. Turns out that the final neural network is about 12.5% off the real value (validation set). The loss is the RMSE sum of all sines and cosines of each angle (roll, pitch, yaw).
+
+Steps to train NN:
+
+1. Connect IMU to Raspberry pi 5 and run 1_imu_calibration_saving.py to calibrate IMU and save it. Calibration is used to compute the actual roll, pitch, yaw.
+2. Run 2_imu_collect_data.py on the raspberry pi to collect data. Press the button on your breadboard to start collecting it. Note that num samples controls the number of samples the code will take. Change num_samples and/or pin of button if necessary.
+3.Run 3_train_NN.ipynb in any machine (maybe a more powerful computer if you want to search for better models for longer). This jupyter notebook uses keras_tuner to do random search.
+4. Run 4_convertToTFlite.ipynb in any machine to change final model's type to tflite (lighter version). The NN is so small that it could probably run just fine in its keras version, but this is one of the project's requirement.
+5. Run run_tflite.py to test tflite model on the raspberry pi 5(only works on Linux machines, apparently). This file does not start with a number because it is used as a module in the next script to be used and python does not like variables that start with a number.
+6. Run 6_publish_tflite.py for testing. Only works on the raspberry pi 5 (or any linux machine) and you have to have a MQTT broker installed (We used mosquitto). This code prints the data and publishes it to "sensor/data"
