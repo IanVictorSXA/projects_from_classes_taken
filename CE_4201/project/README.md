@@ -19,8 +19,8 @@ AWS:
 
 Phone app:
 1. Go to https://ai2.appinventor.mit.edu/ and sign in (or create account)
-2. Load the file provided here with name "Orientation_Checker.aia" by clicking "import project (.aia) from my computer" ADD PICTURE HERE
-3. Click UrsPahoMqttClient1 and a small tab (named UrsPahoMqttClient1) should show on the right ADD PICTURE HERE
+2. Load the file provided here with name "Orientation_Checker.aia" by clicking "import project (.aia) from my computer"
+3. Open the project and click UrsPahoMqttClient1 and a small tab (named UrsPahoMqttClient1) should show on the right
 4. Scroll all the way down and you will see "Username" and "Userpassword".
 5. Fill these fields.
 6. Download "MIT AI2 companion" on your phone (on playstore)
@@ -29,7 +29,7 @@ Phone app:
 
 `This app only works if the mosquitto broker and the phone are in the same network and you have to enter the mosquitto broker's IP address every time you open the app.`
 
-set up LLM:
+Set up LLM:
 
 1. Install ollama:
 ```bash
@@ -40,10 +40,14 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen3:0.6b
 ```
 
+<br>
+
 ### Part 1: collect data, perform inference, send data to AWS, control LEDs
 
 1. Run "main1.py" - This collects, performs inference and send result to AWS and mosquitto. The IMU must be connected to the raspberry pi and it should have a tflite model.
 2. Run "main1_control_led.py" - This receives commands from AWS to turn on/off the LED. You just need LEDs (one for each IMU and adjust code as needed) to run this. In the video, we had this code running on 2 raspberry pi's.
+
+<br>
 
 ### Part 2: LLM with tools (for agentic AI) and face recognition. (Needs 2 raspberry pi 5s)
 
@@ -59,7 +63,9 @@ Slave only needs 3 files: Facial_recognition.py (for testing), Facial_recognitio
 
 `You have to say something like "get orientation of camera 0" to get IMU's orientation because our original idea was to use the IMU on cameras.`
 
-Files description:
+<br>
+
+### Files description:
 * Facial_recognition.py - to test if slave device works properly. This script works without use of AWS or the master device.
 * Facial_recognition_onnx_slave_device.py - to use on the slave device when running the project.
 * Orientation_Checker.aia - File to build the phone app. Import this on MIT app inventor website.
