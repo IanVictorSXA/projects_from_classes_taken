@@ -5,7 +5,7 @@ from gpiozero.pins.lgpio import LGPIOFactory
 import player
 import db2
 
-db_path = "project5/db2.json"
+db_path = "db2.json"
 db2.set_up_db(db_path)
 
 # Change pin_factory to updated one

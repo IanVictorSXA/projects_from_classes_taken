@@ -9,7 +9,7 @@ from gpiozero.pins.lgpio import LGPIOFactory
 from imusensor.MPU9250 import MPU9250
 from imusensor.filters import kalman 
 
-file_path = "./project2/project/data.npy"
+file_path = "data.npy"
 
 Device.pin_factory = LGPIOFactory()
 button = Button(17)
@@ -25,7 +25,7 @@ bus = smbus.SMBus(1)
 imu = MPU9250.MPU9250(bus, address)
 imu.begin()
 
-imu.loadCalibDataFromFile("/home/ianvictor/Desktop/4201_projects/project2/project/calib.json")
+imu.loadCalibDataFromFile("../project/calib.json")
 
 sensorfusion = kalman.Kalman()
 

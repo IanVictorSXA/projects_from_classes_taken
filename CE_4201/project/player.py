@@ -6,7 +6,7 @@ import os
 
 music = mixer.music
 mixer.init()
-path_dir = "project4/songs" # Path to song Folder
+path_dir = "/songs" # Path to song Folder
 
 files = os.listdir(path_dir)
 name_to_path = {}

@@ -4,7 +4,7 @@ from ai_edge_litert.interpreter import Interpreter
 import numpy as np
 
 # input name = input_layer, output name = output_0
-interpreter = Interpreter("project2/model.tflite")
+interpreter = Interpreter("model.tflite")
 signature = interpreter.get_signature_runner()
 
 

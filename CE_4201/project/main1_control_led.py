@@ -10,6 +10,9 @@ Device.pin_factory = LGPIOFactory()
 led0 = LED(17)
 led1 = LED(22)
 
+with open("hostname.txt", "r") as file:
+    hostname = file.readline().strip()
+
 def on_connect(client, userdata, flags, reason_code, properties):
     print("Connected to AWS IoT:" + str(reason_code))
     client.subscribe("raspi/led", qos=1)
@@ -39,6 +42,6 @@ client.message_callback_add("raspi/led", get_data)
 client.tls_set(ca_certs=ca, certfile=certfile, keyfile=keyfile,
                 tls_version=ssl.PROTOCOL_SSLv23)
 client.tls_insecure_set(True)
-client.connect("a3ot19o41mukgz-ats.iot.us-east-1.amazonaws.com", 8883, 60)
+client.connect(hostname, 8883, 60)
 
 client.loop_forever()

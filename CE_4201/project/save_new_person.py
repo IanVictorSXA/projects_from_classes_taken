@@ -5,7 +5,7 @@ import client_aws as aws
 
 topic = "raspi/face_recog/send_from_slave"
 
-file_path = "project3/audios/" # .mp3
+file_path = "./audios/" # .mp3
 
 def on_message(client, userdata, msg):
     print(msg.payload.decode())

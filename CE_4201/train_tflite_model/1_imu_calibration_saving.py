@@ -20,7 +20,7 @@ gyroBias = imu.GyroBias
 mags = imu.Mags 
 magBias = imu.MagBias
 
-imu.saveCalibDataToFile("/home/ianvictor/Desktop/4201_projects/project2/project/calib.json")
+imu.saveCalibDataToFile("../project/calib.json")
 print ("calib data saved")
 
 print(accelscale, accelBias)

@@ -14,7 +14,7 @@ bus = smbus.SMBus(1)
 imu = MPU9250.MPU9250(bus, address)
 imu.begin()
 
-imu.loadCalibDataFromFile("/home/ianvictor/Desktop/code/4201_projects/project5/calib.json")
+imu.loadCalibDataFromFile("../project/calib.json")
 
 imu.myReadSensor()
 imu.computeOrientation()
@@ -28,7 +28,7 @@ def on_connect(client, userdata, flags, reason_code, properties):
 client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
 client.on_connect = on_connect
 
-with open("project2/project/cred.txt", "r") as creds:
+with open("cred.txt", "r") as creds:
     username = creds.readline().strip()
     password = creds.readline().strip()
     client.username_pw_set(username, password)

@@ -33,7 +33,7 @@ def get_data():
 
 # ignore this, for testing
 if __name__ == "__main__":
-    set_up_db("project5/db2.json")
+    set_up_db("db2.json")
     print(get_data())
 
 

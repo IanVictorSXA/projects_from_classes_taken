@@ -19,7 +19,7 @@ bus = smbus.SMBus(1)
 imu = MPU9250.MPU9250(bus, address)
 imu.begin()
 
-imu.loadCalibDataFromFile("/home/ianvictor/Desktop/code/4201_projects/project5/calib.json")
+imu.loadCalibDataFromFile("calib.json")
 
 imu.myReadSensor()
 imu.computeOrientation()
@@ -39,7 +39,7 @@ topic2 = "sensor/data"
 
 client2.on_connect = on_connect2
 
-with open("project2/project/cred.txt", "r") as creds:
+with open("cred.txt", "r") as creds:
     username = creds.readline().strip()
     password = creds.readline().strip()
     client2.username_pw_set(username, password)

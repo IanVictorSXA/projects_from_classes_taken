@@ -18,7 +18,8 @@ from collections import deque
 # ==================================================
 # AWS IoT Config
 # ==================================================
-AWS_ENDPOINT = "a3ot19o41mukgz-ats.iot.us-east-1.amazonaws.com"
+with open("hostname.txt", "r") as file:
+    AWS_ENDPOINT = file.readline().strip()
 CA_PATH = "certs/rootCA.pem"
 CERT_PATH = "certs/device.pem.crt"
 KEY_PATH = "certs/private.pem.key"
